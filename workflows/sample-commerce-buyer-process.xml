@@ -7,7 +7,7 @@
 >
 	<name>6cbc71b6-52e5-2ede-d47c-cfeda1050b02</name>
 	<description>A single approver can approve a workflow content.</description>
-	<version>15</version>
+	<version>17</version>
 	<state>
 		<name>created</name>
 		<description>Begin a workflow.</description>
@@ -102,6 +102,32 @@
 				Pending
 			</label>
 		</labels>
+		<task-timers>
+			<task-timer>
+				<name>Re-attempt transmission</name>
+				<description></description>
+				<delay>
+					<duration>1</duration>
+					<scale>minute</scale>
+				</delay>
+				<recurrence>
+					<duration>1</duration>
+					<scale>minute</scale>
+				</recurrence>
+				<blocking>false</blocking>
+				<timer-actions>
+					<timer-action>
+						<name>Automatic re-transmission</name>
+						<description></description>
+						<script>
+							<![CDATA[]]>
+						</script>
+						<script-language>function#liferay-ballerina-commerce-transmission-workflow-action</script-language>
+						<priority>1</priority>
+					</timer-action>
+				</timer-actions>
+			</task-timer>
+		</task-timers>
 		<transitions>
 			<transition>
 				<labels>
