@@ -1,0 +1,14 @@
+assemble:
+    - fromTask: bootJar
+liferay-ballerina-commerce-transmission-oauth-application-user-agent:
+    .serviceAddress: localhost:9090
+    .serviceScheme: http
+    name: Liferay Ballerina Commerce Transmission OAuth Application User Agent
+    scopes:
+        - Liferay.Headless.Admin.Workflow.everything
+    type: oAuthApplicationUserAgent
+liferay-ballerina-commerce-transmission-workflow-action:
+    name: Liferay Ballerina Commerce Transmission Workflow Action
+    oAuth2ApplicationExternalReferenceCode: liferay-ballerina-commerce-transmission-oauth-application-user-agent
+    resourcePath: /commerceorder/transmit
+    type: workflowAction
